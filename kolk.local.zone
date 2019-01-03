@@ -1,0 +1,24 @@
+$ORIGIN kolk.local.
+$TTL 86400
+kolk.local. IN SOA ns.kolk.local. mail.kolk.local. (
+	19
+	43200
+	180
+	1209600
+	10800
+)
+application.kolk.local.	86400	CNAME	traefik.koilk.local.
+grafana.kolk.local.	86400	CNAME	traefik.kolk.local.
+Traefik.kolk.local.	86400	A	192.168.178.20
+openflixr2.kolk.local.	86400	A	192.168.178.177
+openflixr.kolk.local.	86400	A	192.168.178.172
+nfs.kolk.local.	86400	CNAME	dsm.kolk.local.
+dsm.kolk.local.	86400	A	192.168.178.33
+master.kolk.local.	86400	CNAME	rock3.kolk.local.
+rock3.kolk.local.	86400	A	192.168.178.212
+worker2.kolk.local.	86400	CNAME	rock2.kolk.local.
+rock2.kolk.local.	86400	A	192.168.178.211
+worker1.kolk.local.	86400	CNAME	rock1.kolk.local.
+rock1.kolk.local.	86400	A	192.168.178.210
+kolk.local.	NS	ns.kolk.local.
+ns.kolk.local.	A	192.168.178.33
