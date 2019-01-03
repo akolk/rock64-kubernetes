@@ -9,4 +9,6 @@ My home rock64 kubernetes setup
 
 Setup your local DNS, my nodes are called rock1, rock2 and rock3 (aka master).
 
-## step 2
+## step xx: install the cluster
+
+sudo kubeadm init
