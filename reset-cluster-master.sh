@@ -24,6 +24,6 @@ sudo iptables -P FORWARD ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 sudo iptables -t nat -F
 sudo iptables -t mangle -F
-iptables -F
-iptables -X
-systemctl restart docker
+sudo iptables -F
+sudo iptables -X
+sudo systemctl restart docker
