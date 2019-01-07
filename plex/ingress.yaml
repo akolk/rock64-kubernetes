@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: plex-kube-plex
+  namespace: plex
+  annotations:
+    traefik.frontend.rule.type: PathPrefix
+spec:
+  rules:
+  - host: plex.kolk.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: plex-kube-plex
+          servicePort: 32400
