@@ -52,6 +52,7 @@ Perform the following steps to configure the nodes:
     net.ipv6.conf.eth0.disable_ipv6 = 1
     
     sudo sysctl -p
+    
 * Add user to Sudoers:
 
     visudo # Add to end of file:
@@ -79,3 +80,7 @@ kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.7.3/manifes
 Now my home network has a range of 192.168.178.16/28 (this means that we have 4 bits available, 16 addresses but we can only use (192.168.178.17 - 192.168.178.30) that is specified 
 
 kubectl apply -f metallb-conf.yaml
+
+## Configure Ingress Controller ##
+There are two deployments of Traefik, one for internal ingress (on domain .kolk.local) and one for external ingress (on domain .anjokolk.com). These deployments have two different IPs assigned by the load balancer. The separation is due to the external Traefik handles certificate generation on Letsencrypt.
+
