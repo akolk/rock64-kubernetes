@@ -93,3 +93,7 @@ There are two deployments of Traefik, one for internal ingress (on domain .kolk.
 * kubectl apply -f traefik-internal-service.yaml
 
 * kubectl apply -f traefik-internal-deployment.yaml
+
+* Here we do the external configuration (if needed, not now :-))
+
+##
