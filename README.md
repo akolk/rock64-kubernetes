@@ -96,4 +96,5 @@ There are two deployments of Traefik, one for internal ingress (on domain .kolk.
 
 * Here we do the external configuration (if needed, not now :-))
 
-##
+## Create Persistent Volumes/Storage ##
+
