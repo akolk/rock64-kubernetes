@@ -8,9 +8,12 @@ My home rock64 kubernetes setup. The cluster consists of the following hardware:
 * A stackable case 
 * Ethernet cables
 
+
 ## step 1: install Etcher on your laptop
+You can install [Etcher](https://etcher.io/) on your laptop or desktop. You need the [USB to eMMC adapter](https://www.pine64.org/?product=usb-adapter-for-emmc-module) to flash the image to the eMMC module.
 
 ## step 2: flash the eMMC with Debian 
+Download the [Debian Stretch](http://wiki.pine64.org/index.php/ROCK64_Software_Release#Debian_Stretch) for Rock64.
 
 ## step 3: 
 
