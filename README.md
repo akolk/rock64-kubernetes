@@ -16,16 +16,20 @@ You can install [Etcher](https://etcher.io/) on your laptop or desktop. You need
 Download the [Debian Stretch](http://wiki.pine64.org/index.php/ROCK64_Software_Release#Debian_Stretch) for Rock64.
 
 ## step 3: Planning
-The network: 192.168.178.0/24
-Gateway    : 192.168.178.1
-DNS        : 192.168.178.33 (Route55 on Synology)
+- The network  : 192.168.178.0/24
+- Gateway      : 192.168.178.1
+- DNS          : 192.168.178.33 (Route55 on Synology)
+- MetalLB CIDR : 192.168.178.16/28
+    - 192.168.178.17 - 192.168.178.30
+- Traefik (Int): 192.168.178.20
+- Traefik (Ext): 192.168.178.21
 
 Setup your local DNS, my nodes are called rock1, rock2 and rock3 (aka master).
 Found the MAC addresses in the DHCP server (also on the Synology) and put them on the reserved IP list:
 
-Master Node: 192.168.178.212 (rock3 master)
-Slave2 Node: 192.168.178.211 (rock2)
-Slave1 Node: 192.168.178.210 (rock1)
+- Master Node: 192.168.178.212 (rock3 master)
+- Slave2 Node: 192.168.178.211 (rock2)
+- Slave1 Node: 192.168.178.210 (rock1)
 
 ## step 4: Configure each node
 Perform the following steps to configure the nodes:
@@ -52,6 +56,7 @@ Perform the following steps to configure the nodes:
 
     visudo # Add to end of file:
     rock64 ALL=(ALL) NOPASSWD:ALL
+    
 ## step 5: Install Docker/Kubernetes on each node ##
 Execute the following script on each node:
 ./install_container_services.sh
@@ -59,3 +64,18 @@ Execute the following script on each node:
 ## step xx: install the cluster
 
 sudo kubeadm init
+
+
+
+
+
+
+
+## Configure Loadbalancer ##
+The loadbalancer in the Kubernetes Clusters is [MetalLB](https://metallb.universe.tf/installation/). Install metallb with:
+
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.7.3/manifests/metallb.yaml
+
+Now my home network has a range of 192.168.178.16/28 (this means that we have 4 bits available, 16 addresses but we can only use (192.168.178.17 - 192.168.178.30) that is specified 
+
+kubectl apply -f metallb-conf.yaml
