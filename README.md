@@ -84,3 +84,12 @@ kubectl apply -f metallb-conf.yaml
 ## Configure Ingress Controller ##
 There are two deployments of Traefik, one for internal ingress (on domain .kolk.local) and one for external ingress (on domain .anjokolk.com). These deployments have two different IPs assigned by the load balancer. The separation is due to the external Traefik handles certificate generation on Letsencrypt.
 
+* kubectl create namespace traefik
+
+* kubectl apply -f traefik-rbac.yaml
+
+* kubectl apply -f traefik-internal-configmap.yaml
+
+* kubectl apply -f traefik-internal-service.yaml
+
+* kubectl apply -f traefik-internal-deployment.yaml
