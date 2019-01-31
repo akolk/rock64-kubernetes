@@ -35,28 +35,28 @@ Found the MAC addresses in the DHCP server (also on the Synology) and put them o
 Perform the following steps to configure the nodes:
 
 * Change the hostname on each node
-'''
-   sudo vi /etc/hosts
-   sudo vi /etc/hostname
-   sudo hostname rock1   
+
+ - sudo vi /etc/hosts
+ - sudo vi /etc/hostname
+ - sudo hostname rock1   
   
-   sudo service networking restart
-'''
+ - sudo service networking restart
+
 * Disable IPv6
 
-    sudo vi /etc/sysctl.conf
+ -   sudo vi /etc/sysctl.conf
 
-    net.ipv6.conf.all.disable_ipv6 = 1
-    net.ipv6.conf.default.disable_ipv6 = 1
-    net.ipv6.conf.lo.disable_ipv6 = 1
-    net.ipv6.conf.eth0.disable_ipv6 = 1
+ -  net.ipv6.conf.all.disable_ipv6 = 1
+ -  net.ipv6.conf.default.disable_ipv6 = 1
+ -  net.ipv6.conf.lo.disable_ipv6 = 1
+ -  net.ipv6.conf.eth0.disable_ipv6 = 1
     
-    sudo sysctl -p
+ -  sudo sysctl -p
     
 * Add user to Sudoers:
 
-    visudo # Add to end of file:
-    rock64 ALL=(ALL) NOPASSWD:ALL
+  -  visudo # Add to end of file:
+  -  rock64 ALL=(ALL) NOPASSWD:ALL
     
 ## step 5: Install Docker/Kubernetes on each node ##
 Execute the following script on each node:
