@@ -35,13 +35,13 @@ Found the MAC addresses in the DHCP server (also on the Synology) and put them o
 Perform the following steps to configure the nodes:
 
 * Change the hostname on each node
-
-   > sudo vi /etc/hosts
-   > sudo vi /etc/hostname
-   > sudo hostname rock1   
-   >
-   > sudo service networking restart
-
+'''
+   sudo vi /etc/hosts
+   sudo vi /etc/hostname
+   sudo hostname rock1   
+  
+   sudo service networking restart
+'''
 * Disable IPv6
 
     sudo vi /etc/sysctl.conf
